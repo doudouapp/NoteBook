@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>notes</key>
+	<array>
+		<dict>
+			<key>created_at</key>
+			<integer>1494569605</integer>
+			<key>mtime</key>
+			<integer>1494815170</integer>
+			<key>tags</key>
+			<array/>
+			<key>title</key>
+			<string>SQLite</string>
+			<key>updated_at</key>
+			<integer>1494815170</integer>
+			<key>uuid</key>
+			<string>13663AE3-B961-4F5C-85C8-2FEFA8201175</string>
+		</dict>
+	</array>
+</dict>
+</plist>
