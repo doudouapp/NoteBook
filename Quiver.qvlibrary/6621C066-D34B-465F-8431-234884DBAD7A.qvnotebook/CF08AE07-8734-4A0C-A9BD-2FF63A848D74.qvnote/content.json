@@ -1,0 +1,48 @@
+{
+  "title": "构造函数 和 析构函数",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h2><b>类的构造函数</b></h2>"
+    },
+    {
+      "type": "text",
+      "data": "类的构造函数是类的一种特殊的成员函数，它会在每次创建类的新对象时执行。"
+    },
+    {
+      "type": "text",
+      "data": "构造函数的名称与类的名称是完全相同的，并且不会返回任何类型，也不会返回void。构造函数可用于为某些成员变量设置初始值。"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <iostream>\n\nusing namespace std;\n\nclass Line {\n  public:\n    void setLength(double len);\n    double getLength(void);\n    Line();  // 这是构造函数\n  private:\n    double length;\n};\n\n// 成员函数定义，包括构造函数\nLine::Line(void){\n  cout << \"Object is being created\" << endl;\n}\n\nvoid Line::setLength(double len) {\n  length = len;\n}\n\ndouble Line :: getLength(void) {\n  return length;\n}\n\n// 程序的主函数\nint main() {\n  Line line;\n  \n  line.setLength(6.0);\n  cout << \"length of line : \" << line.getLength() << endl;\n  return 0;\n}"
+    },
+    {
+      "type": "text",
+      "data": "带参数的构造函数"
+    },
+    {
+      "type": "text",
+      "data": "默认的构造函数没有带任何参数，但如果需要，构造函数也可以带有参数。这样在创建对象时就会给对象赋初始值。例："
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <iostream>\nusing namespace std;\nclass Line {\n  public:\n  void setLength(double len);\n  double getLength(void);\n  Line(double len);  // 带有参数的构造函数\n  \n  private:\n  double length;\n}\n\n// 成员函数定义，包括构造函数\nLine::Line(double len) {\n  cout <<\"Object is being created ,length = \"<< len << endl;\n  length = len;\n}\n\nvoid Line::setLength(double len) {\n  length = len;\n}\n\ndouble Line::getLength(void) {\n  return length;\n}\n\n// 程序的主函数\nint main () {\n  Line line (10.0);\n  \n  // 获取默认设置的长度\n  cout << \"length of line : \" << line.getLength() << endl;\n  \n  //\n  line.setLength(6.0);\n  cout << \"length of line : \" << line.getLength() << endl;\n  return 0;\n}\n"
+    },
+    {
+      "type": "text",
+      "data": "<h2>类的析构函数</h2>"
+    },
+    {
+      "type": "text",
+      "data": "类的析构函数是类的一种特殊的成员函数，它会在每次删除所创建的对象时执行。<div>析构函数的名称与类的名称是完全相同的，只是在前面加了个波浪号(~)作为前缀，它不会返回任何值，也不能带有任何参数。析构函数有助于在跳出程序（比如关闭文件、释放内存等）前释放资源。</div>"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <iostream>\nusing namespace std;\nclass Line {\n  public:\n      void setLength(double len);\n      double getLength(void);\n      Line();  //  构造函数声明\n      ~Line(); //  析构函数声明\n  private:\n      double length;\n}\n\n// 成员函数定义，包括构造函数 和 析构函数\n\nLine::Line(void) {\n  cout << \"Object is being created\" << endl;\n}\n\nLine::~Line(void) {\n  cout << \"Object is being deleted\" << endl;\n}\n\nvoid Line::setLength(double len) {\n  length = len;\n}\n\ndouble Line::getLength(void) {\n  return length;\n}\n\nint main() {\n  Line line;\n  line.setLenth(6.0);\n  cout << \"Length of line :\" << line.getLength() << endl;\n  return 0;\n}\n\n// 当上面的代码被编译和执行时，会产生下列结果：\n// Object is being created\n// Length of line : 6\n// Object is being deleted"
+    }
+  ]
+}

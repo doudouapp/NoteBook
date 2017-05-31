@@ -1,0 +1,45 @@
+{
+  "title": "类和对象",
+  "cells": [
+    {
+      "type": "text",
+      "data": "类用于指定对象的形式，它包含了数据表示法和用于处理数据的方法。类中的数据和方法称为类的成员。"
+    },
+    {
+      "type": "text",
+      "data": "<h3>C++ 类成员函数</h3>"
+    },
+    {
+      "type": "text",
+      "data": "类的成员函数是指那些把定义和原型写在类定义内部的函数，类成员函数是类的一个成员，它可以操作类的任意对象，可以访问对象中的所有成员。"
+    },
+    {
+      "type": "text",
+      "data": "<h3>C++ 类访问修饰符</h3>"
+    },
+    {
+      "type": "text",
+      "data": "数据封装是面向对象编程的一个重要特点，它防止函数直接访问类型的内部成员。类成员的访问限制是通过在类主体内部对各个区域标记 <font color=\"#323232\" style=\"background-color: rgb(254, 250, 0);\">public、private、protected</font>来制定的。关键字<font color=\"#323232\" style=\"background-color: rgb(254, 250, 0);\">public、private、protected</font>称为访问修饰符。"
+    },
+    {
+      "type": "markdown",
+      "data": "1. 公有成员(public)\n   公有成员在程序类的外部是可访问的。\n2. 私有成员(private)\n   私有成员变量或函数在类的外部是不可访问的，甚至是不可查看的。只有类和友元函数可以访问私有变量。默认情况下，类的成员都是私有的。\n3. 保护成员(protected)\n   保护成员变量或函数 和私有成员很类似，但不同的一点是，保护成员在派生类是可以访问的。"
+    },
+    {
+      "type": "text",
+      "data": "继承中的特点"
+    },
+    {
+      "type": "markdown",
+      "data": "修饰符| public继承 | protected 继承| private继承\n------| -----------| --------------| -----------\npublic| public     | protected     |  private\nprotected|protected| protected     |  private\nprivate| private   | private       |  private"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title": "重载运算符和重载函数",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>C++ 中的函数重载</h3>"
+    },
+    {
+      "type": "text",
+      "data": "C++允许在同一作用域中的某个函数和运算符制定多个定义，分别称为函数重载和运算符重载。<div>重载声明是指一个与之前已经在该作用域内声明过的函数或方法具有相同名称的声明，但他们的参数列表和定义（实现）不相同。</div><div>当调用一个重载函数或重载运算符时，编译器通过把所使用的参数类型与定义中的参数类型进行比较，决定选用最合适的定义。选择最合适的重载函数或重载运算符的过程，称为重载决策。</div>"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <iostream>\nusing namespace std;\n\nclass PrintData {\n  public:\n      void print (int i) {\n        cout << \"Printing Int: \" << i << endl;\n      }\n      void print(double f) {\n        cout << \"Printing float: \" << f << endl;\n      }\n      void print(char *c) {\n        cout << \"Printing character: \" << c << endl;\n      }\n};\n\nint main() {\n  PrintData pd;\n  pd.print(5);\n  pd.print(30.44);\n  pd.print(\"Hello C++\");\n  return 0;\n}\n\n// 输出\n// Printing int: 5\n// Printing float: 30.44\n// Printing character: Hello C++"
+    },
+    {
+      "type": "text",
+      "data": "<h3>C++ 中的运算符重载</h3>"
+    },
+    {
+      "type": "text",
+      "data": "通过重定义或重载大部分C++内置的运算符，就能使用自定义类型的运算符。<div>重载的运算符时带有特殊名称的函数，函数名是由关键字 operator 和其后要重载的运算符符号构成的。与其他函数一样，重载运算符有一个<b><font color=\"#323232\" style=\"background-color: rgb(254, 250, 0);\">返回类型</font></b>和一个<font color=\"#323232\" style=\"background-color: rgb(254, 250, 0);\">参数列表</font>。</div>"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <iostream>\nusing namespace std;\n\nclass Box {\n  public:\n      double getVolume(void) {\n        return length * width * height;\n      }\n      \n      void setLength(double l) {\n        length = l;\n      }\n      \n      void setWidth(double w) {\n        width = w;\n      }\n      void setHeight(double h) {\n        height = h;\n      }\n      \n      Box operator+(const Box& b) {\n        Box box;\n        box.length = this->length + b.length;\n        box.width = this->width + b.width;\n        box.height = this->height + b.height; \n        retun box;\n      }\n      \n    private:\n      double length;\n      double width;\n      double height;\n};\n\nint main(int argc, const char * argv[]) {\n    \n    Box box1;\n    Box box2;\n    \n    box1.setWidth(10.0);\n    box1.setHeight(10.0);\n    box1.setLength(10.0);\n    cout << \"Box1 volume is: \" << box1.getVolume() << endl;\n    \n    box2.setWidth(20.0);\n    box2.setHeight(20.0);\n    box2.setLength(20.0);\n    cout << \"Box2 volume is: \" << box2.getVolume() << endl;\n    \n    Box box3;\n    box3 = box2 + box1;\n    cout << \"Box3 volume is: \" << box3.getVolume() << endl;\n    return 0;\n}\n// Output\n\n// Box1 volume is: 1000\n// Box2 volume is: 8000\n// Box3 volume is: 27000"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

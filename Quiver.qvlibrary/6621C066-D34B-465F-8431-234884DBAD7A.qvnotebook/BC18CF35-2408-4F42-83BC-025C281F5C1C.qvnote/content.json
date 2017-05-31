@@ -1,0 +1,48 @@
+{
+  "title": "0.基础知识",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>1. for 循环</h3>"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "for ( init; condition; increment) {\n  statement(s);\n}"
+    },
+    {
+      "type": "markdown",
+      "data": "for循环的控制流：\n1. init 会首先执行，且只会执行一次。这一步是声明并初始化任何循环控制变量。在这里可以不写任何语句，只要有一个分号出现即可。\n2. 判断condition。如果为真，则执行循环主体。如果为假，则不执行循环主体，并且控制流会跳转到紧接着for循环的下一条与语句，即跳出本次循环。\n3. 在执行完for循环主体后，控制流会跳回上面的increment语句。该语句更新循环控制变量，可以留空。\n4. 条件再次被判断。即重复2。"
+    },
+    {
+      "type": "diagram",
+      "diagramType": "flow",
+      "data": "st=>start: Start\ne=>end\nop1=>operation: Init\nop2=>operation: code block\nop3=>operation: increment\ncond=>condition: cond\n\nst->op1->cond\ncond(yes,right)->op2(right)->op3(right)->cond\ncond(no)->e"
+    },
+    {
+      "type": "text",
+      "data": "<h3>2. 常见符号解释</h3>"
+    },
+    {
+      "type": "markdown",
+      "data": "符号|解释\n----|-----\n::|域解析运算符(命名空间相关)\n<<|左移运算符\n>>|右移运算符"
+    },
+    {
+      "type": "text",
+      "data": "<h3>3.指针</h3>"
+    },
+    {
+      "type": "text",
+      "data": "每一个变量都有一个内存位置，每一个内存位置都定义了可使用连字号（&amp;）运算符访问的地址，它表示了载内存中的一个地址。<div>指针是一个变量，其值为另一个变量的地址，即内存位置的直接地址。和其他常量或变量一样，必须载使用指针存储其他变量地址之前，对其进行声明。</div>"
+    },
+    {
+      "type": "text",
+      "data": "C++使用指针<div>使用指针时会频繁进行以下几个操作：定义一个指针变量、把变量地址赋值给指针、访问指针变量中可用地址的值。</div>"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "#include <iostream>\nusing namespace std;\nint main () {\n  int var = 20;   //实际变量的声明\n  int *ip;        //指针变量的声明\n  ip = &var;      //在指针变量中存储var的地址\n  \n  \n  return 0;\n}"
+    }
+  ]
+}

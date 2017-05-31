@@ -1,0 +1,33 @@
+{
+  "title": "无界商圈打包注意",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h3>一 、主包</h3><br>"
+    },
+    {
+      "type": "text",
+      "data": "开发者账号：&nbsp;tyapp@tyrbl.com"
+    },
+    {
+      "type": "markdown",
+      "data": "1. bundleID： com.tyrbl.WJService\n2. 工程Target 更改Version\n3. 发布证书为 WJSQ_AppStore\n4. 环境切换   AppStore --> 228  <TYConfig>\n5. app icon   选择AppIcon1"
+    },
+    {
+      "type": "text",
+      "data": "<h3>二、马甲包</h3>"
+    },
+    {
+      "type": "text",
+      "data": "开发者账号：&nbsp;<span style=\"color: rgb(0, 0, 0); font-family: 'PingFang SC'; font-size: 12px;\">tyrblapp@163.com</span>"
+    },
+    {
+      "type": "markdown",
+      "data": "1. bundleID： com.tyrbl1.wjsq \n2. 工程Target 更改Version\n3. 发布证书为 WJSQ_AppStore\n4. 环境切换   AppStore --> 228 <TYConfig>\n5. app icon   选择AppIcon2\n6. 马甲包仅支持iPhone"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

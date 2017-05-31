@@ -1,0 +1,65 @@
+{
+  "title": "SQLite",
+  "cells": [
+    {
+      "type": "text",
+      "data": "SQLite 是一个进程内的库，实现了自给自足的、无服务器的、零配置的、事务性的SQL数据库引擎。"
+    },
+    {
+      "type": "text",
+      "data": "SQLite 引擎不是一个独立的进程，可以按程序需求进行静态或动态连接，SQLite直接访问其存储文件。"
+    },
+    {
+      "type": "text",
+      "data": "命令"
+    },
+    {
+      "type": "text",
+      "data": "与关系数据库进行交互的标准SQLite命令类似于SQL。包括CREATE，SELECT，INSERT，UPDATE，DELETE和DROP。这些命令基于它们的操作性质可分为以下几种："
+    },
+    {
+      "type": "text",
+      "data": "<b>DDL - 数据定义语言</b>"
+    },
+    {
+      "type": "markdown",
+      "data": "命令    |描述 |语法\n------  |-----|----\ncreate  |创建一个新的表| crate table table_name\nalter   |修改一个表。 或其他对象|\ndrop    |删除一个表，或其他对象| drop table table_name"
+    },
+    {
+      "type": "text",
+      "data": "DML - 数据操作语言"
+    },
+    {
+      "type": "markdown",
+      "data": "命令 | 描述 | 语法\n-----|------|-----\ninsert|创建一条记录| insert into table_name values();\nupdate|修改记录    | update table_name set key1 = value1;\ndelete|删除记录    | delete from table_name where... ;"
+    },
+    {
+      "type": "text",
+      "data": "DQL - 数据查询语言"
+    },
+    {
+      "type": "markdown",
+      "data": "命令 | 描述 | 语法\n-----|------|-----\nselect|从一个或多个表中检索某些记录|"
+    },
+    {
+      "type": "text",
+      "data": "<b>事务</b>"
+    },
+    {
+      "type": "text",
+      "data": "&nbsp; &nbsp; 事务，在计算机术语中是指访问并可能更新数据库中各种数据项的一个程序执行单元。事务通常就是指数据库事务。"
+    },
+    {
+      "type": "text",
+      "data": "一个数据库事务通常包含对数据库进行读或写的一个操作序列。它的存在有以下两个目的："
+    },
+    {
+      "type": "markdown",
+      "data": "1. 为数据库操作提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在一场状态下仍能保持一致性的方法。\n2. 当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

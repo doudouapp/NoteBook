@@ -1,0 +1,26 @@
+{
+  "title": "GCD - 控制并发",
+  "cells": [
+    {
+      "type": "text",
+      "data": "GCD中使用 dispatch_semaphore 来控制并发的实现。<div>共有三个函数是semaphore的操作，分别是：</div>"
+    },
+    {
+      "type": "markdown",
+      "data": "- dispatch_semaphore_create 创建一个semaphore\n- dispatch_semaphore_signal 发送一个信号\n- dispatch_semaphore_wait   等待信号"
+    },
+    {
+      "type": "text",
+      "data": "第一个函数有一个整形的参数，可以理解为信号的总量， dispatch_semaphore_signal是发送一个信号，自然会让总量加1。dispatcha_semaphore_wait等待信号，当信号总量小于等于0时就会一直等待，否则就可以正常的执行，并让信号总量减1。 并发控制的代码为："
+    },
+    {
+      "type": "code",
+      "language": "swift",
+      "data": "let semaphore = DispatchSemaphore.init(value: 10)\nlet group = DispatchGroup.init()\nlet globalQueue = DispatchQueue.global(qos: .utility)\n\nfor i in 0 ..< 100 {\n    semaphore.wait()\n    concurrentQueue.async(group: group) {\n        print(\"task\", i, Thread.current)\n        sleep(2)\n        semaphore.signal()\n    }\n}"
+    },
+    {
+      "type": "text",
+      "data": "代码介绍：首先创建一个信号总量为10的信号，将100个任务放入group中。每次循环会开启一个线程，sleep2秒。每次循环会让信号量减1，然后线程任务结束后再增加1。就保证了每次最多有10个任务执行。"
+    }
+  ]
+}
