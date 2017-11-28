@@ -1,0 +1,33 @@
+{
+  "title": "如何将本地的项目转成Git项目",
+  "cells": [
+    {
+      "type": "text",
+      "data": "生成ssh公钥<div>ssh-keygen -t rsa -C &nbsp;“xxx@xxx.com”</div><div><br></div>"
+    },
+    {
+      "type": "text",
+      "data": "一、在终端进入项目所在目录"
+    },
+    {
+      "type": "markdown",
+      "data": "$ git init"
+    },
+    {
+      "type": "text",
+      "data": "二、将所有文件放进新的本地git仓库"
+    },
+    {
+      "type": "markdown",
+      "data": "git add 将文件放入仓库。'.'通配符，添加所有的文件。\n$ git add ."
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}
