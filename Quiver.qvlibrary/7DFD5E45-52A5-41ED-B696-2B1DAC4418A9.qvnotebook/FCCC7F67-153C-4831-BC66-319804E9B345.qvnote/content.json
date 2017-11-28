@@ -1,0 +1,17 @@
+{
+  "title": "数据库的创建",
+  "cells": [
+    {
+      "type": "text",
+      "data": "1. 数据库的创建直接用 命令 DataBase.db 即可。"
+    },
+    {
+      "type": "text",
+      "data": "&nbsp; 注意： 使用数据库之前，一定要打开数据库。"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}
