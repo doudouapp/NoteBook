@@ -1,0 +1,104 @@
+{
+  "title": "基础概念",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# 导演、场景、层、精灵"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><span style=\"font-variant-ligatures: normal;\">在Cocos2d-x-3.x引擎中，采用节点树形结构来管理游戏对象，</span>一个游戏可以划分为不同的场景，一个场景又可以分为不同的层，一个层又可以拥有任意个可见的游戏节点（即对象，游戏中基本上所有的类都派生于节点类Node）。可以执行Action来修改游戏节点的属性，使其移动、旋转、放大、缩小等等。</span>"
+    },
+    {
+      "type": "text",
+      "data": "基本框架类图如下："
+    },
+    {
+      "type": "text",
+      "data": "<img src=\"quiver-image-url/0155CA707AD02ED307E73016D3A42A44.png\" alt=\"frame.png\" width=\"464\" height=\"315\"><div><br></div>"
+    },
+    {
+      "type": "markdown",
+      "data": "# 导演（Director）"
+    },
+    {
+      "type": "markdown",
+      "data": "可以把游戏类比为一部电影，只是游戏具有更强的操作力。Cocos2d中把统筹游戏大局的类抽象为导演`Diretor`,`Diretor`是整个引擎的核心。`Diretor`控制游戏中的常用操作，比如OpenGL ES  的 初始化、场景的转换、游戏的暂停继续、世界坐标和GL坐标之间的切换、游戏数据的保存..."
+    },
+    {
+      "type": "text",
+      "data": "所以`Diretor` 利用了单例模式设计。"
+    },
+    {
+      "type": "markdown",
+      "data": "# 场景（Scene）"
+    },
+    {
+      "type": "text",
+      "data": "场景的一个重要的作用就是流程控制的作用，下面是Director控制场景的常用方法："
+    },
+    {
+      "type": "markdown",
+      "data": "`runWithScene(Scene \\*scene)` 启动游戏，并运行scene场景。\n`pushScene(Scene *scene)` 将当前运行中的场景暂停并压入到代码执行场景栈，再运行传入的场景。\n`popScene()` 释放当前场景,再弹出栈顶的场景。如果空栈，直接结束应用。\n`replaceScene(Scene *scene )` 直接使用传入的scene替换当前场景，当前场景被释放。常用的切换方法。\n`end()` 释放和终止执行场景，同时退出应用\n`pause()` 暂停当前运行场景中的所有计时器和动作，场景仍然会显示在屏幕上\n`resume ()` 恢复当前运行场景的所有计时器和动作，场景仍然会显示在屏幕上"
+    },
+    {
+      "type": "text",
+      "data": "场景是层的容器。包含了所有需要显示的游戏元素。"
+    },
+    {
+      "type": "markdown",
+      "data": "# 层（Layer）"
+    },
+    {
+      "type": "text",
+      "data": "Layer是处理玩家事件响应的Node子类。与场景不同，层通常包含的是直接再屏幕上呈现的内容，并且可以接受用户的输入事件，包括触摸，加速计和键盘输入等。"
+    },
+    {
+      "type": "text",
+      "data": "向场景中添加层：<div><br><div><span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">addChild( Node&nbsp;</span><span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">child )</span><br></div><div><span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><span style=\"box-sizing: border-box; font-variant-ligatures: normal;\">addChild( Node&nbsp;</span><span style=\"font-variant-ligatures: normal;\">child, &nbsp;int zOrder )</span><br></span></div><div><span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><span style=\"font-variant-ligatures: normal;\"><span style=\"font-variant-ligatures: normal;\">addChild( Node *child, int zOrder, int tag )</span><br></span></span></div></div><div><span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\"><span style=\"font-variant-ligatures: normal;\"><span style=\"font-variant-ligatures: normal;\"><br></span></span></span></div><div style=\"orphans: 2; widows: 2;\"><font face=\"Microsoft Yahei, Pinghei, Helvetica, Arial, sans-serif\" size=\"3\"><span style=\"background-color: rgb(255, 255, 255);\">Child &nbsp; 参数就是节点。对于场景，添加的节点就是层。</span></font></div><div style=\"orphans: 2; widows: 2;\"><font face=\"Microsoft Yahei, Pinghei, Helvetica, Arial, sans-serif\" size=\"3\"><span style=\"background-color: rgb(255, 255, 255);\">zOrder 每一个层在Z轴的层级。</span></font></div><div style=\"orphans: 2; widows: 2;\"><font face=\"Microsoft Yahei, Pinghei, Helvetica, Arial, sans-serif\" size=\"3\"><span style=\"background-color: rgb(255, 255, 255);\">tag &nbsp;元素的标识码。</span></font></div>"
+    },
+    {
+      "type": "markdown",
+      "data": "# 精灵（Sprite）"
+    },
+    {
+      "type": "text",
+      "data": "<span style=\"font-family: &quot;Microsoft Yahei&quot;, Pinghei, Helvetica, Arial, sans-serif; font-size: 16px; font-variant-ligatures: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">Cocos2d中的精灵和其他游戏引擎中的精灵相似，它可以移动，旋转，缩放，执行动画，并接受其他转换。Cocos2dx的Sprite由Texure，frame和animation组成，由openes负责渲染。</span>"
+    },
+    {
+      "type": "text",
+      "data": "使用Textture2D加载图片，可以用Textture2D生成对应的SpriteFrame，将SpriteFrame添加到Animation生成动画数据，用Animation生成Animate（就是最后的动画动作），最后用Sprite执行这个动作。"
+    },
+    {
+      "type": "text",
+      "data": "创建精灵的几种方式："
+    },
+    {
+      "type": "markdown",
+      "data": "1. 直接创建："
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "auto sprite = Sprite::create(\"HelloWorld.png\");      \nthis->addChild(sprite,0);"
+    },
+    {
+      "type": "markdown",
+      "data": "2. 使用纹理创建精灵"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "auto sprite1 = Sprite::createWithTexture(TextureCache::getInstance()->addImage(\"HelloWorld.png\"));\nthis->addChild(sprite1, 0);"
+    },
+    {
+      "type": "markdown",
+      "data": "3. 使用精灵帧来创建精灵"
+    },
+    {
+      "type": "code",
+      "language": "c_cpp",
+      "data": "auto sprite2 = Sprite::createWithSpriteFrameName(\"HelloWorld.png\");　　\nthis->addChild(sprite2, 0); "
+    }
+  ]
+}

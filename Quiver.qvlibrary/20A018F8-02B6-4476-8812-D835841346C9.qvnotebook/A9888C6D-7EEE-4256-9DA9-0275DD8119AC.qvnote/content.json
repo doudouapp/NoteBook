@@ -23,7 +23,19 @@
     },
     {
       "type": "text",
-      "data": ""
+      "data": "三、将文件放入提交"
+    },
+    {
+      "type": "markdown",
+      "data": "git commit\ngit commit -m '历史记录'"
+    },
+    {
+      "type": "text",
+      "data": "四、推送远程仓库"
+    },
+    {
+      "type": "markdown",
+      "data": "git push "
     },
     {
       "type": "text",
