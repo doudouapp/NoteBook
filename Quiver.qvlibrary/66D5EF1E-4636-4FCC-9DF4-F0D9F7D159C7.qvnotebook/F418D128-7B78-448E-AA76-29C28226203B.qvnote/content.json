@@ -1,0 +1,25 @@
+{
+  "title": "Xcode工具相关",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<h1>一、查看ipa信息</h1>"
+    },
+    {
+      "type": "text",
+      "data": "1、将XXX.ipa包解压。终端cd到 Payload/XXX<div>2. &nbsp;命令&nbsp;<span style=\"color: rgb(47, 47, 47); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 16px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255);\">security cms -D -i embedded.mobileprovision</span></div>"
+    },
+    {
+      "type": "text",
+      "data": "<h1>二、命令行自动打包</h1>"
+    },
+    {
+      "type": "text",
+      "data": "<h2>（一）、xcodebuild 工具</h2>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}
