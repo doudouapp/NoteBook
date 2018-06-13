@@ -1,0 +1,41 @@
+{
+  "title": "Block",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# `Blocks 和 变量`"
+    },
+    {
+      "type": "text",
+      "data": "&nbsp; &nbsp; 本文介绍Block和变量之间的关系，包括内存管理。"
+    },
+    {
+      "type": "markdown",
+      "data": "## `变量的类型`"
+    },
+    {
+      "type": "markdown",
+      "data": "Block对象的代码内部，可以用以下5种不同方式处理变量：\n* 全局变量，包括静态本地\n* 全局函数\n* 当前代码体内的局部变量和参数\n\nBlock还支持两种其他类型的变量：\n* 用__block修饰的变量，这样就可以在Block内部修改变量，并且一旦block被复制到堆(heap)中，它们将被保留。\n* 静态变量"
+    },
+    {
+      "type": "markdown",
+      "data": "## `Block的内存管理`"
+    },
+    {
+      "type": "text",
+      "data": "Block的三种类型：NSConcreteGlobalBlock、NSConcreteStackBlock、NSconcreteMallocBlock。<div>三种Block在内存中的分布：<br><div>——————————————————————————————&nbsp;</div><div>data area (.data section) &nbsp;&lt;&lt;==== &nbsp;_NSConcreteGlobalBlock</div><div>================&nbsp;</div><div>heap &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;&lt;==== &nbsp;_NSConcreteMallocBlock</div><div>================</div><div>stack &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;&lt;==== &nbsp;_NSConcreteStackBlock</div><div>——————————————————————————————&nbsp;<br></div></div>"
+    },
+    {
+      "type": "markdown",
+      "data": "#### _NSConcreteGlobalBlock\n `1、当block字面量写在全局作用域时，即为 global block；`\n `2、当block字面量不获取任何外部变量时，即为 global block；`\n \n除了上述描述的两种情况，其他形式创建的block 均为 stack block。\n\n#### _NSConcreteStackBlock\n该类型的block处于内存的栈区。`global block` 由于处在data段，可以通过指针安全访问，但`stack block` 处在内存栈区，如果其变量作用域结束，这个block就被废弃，block上__block变量也同样会被废弃。\n为了解决这个问题，block提供了copy的功能，将 block 和 __block 变量从栈拷贝到堆，就是 `_NSConcreteMallocBlock`.\n\n#### _NSConcreteMallocBlock\n该类型block处于内存的堆区，所以会将_NSConcreteMallocBlock写入isa：impl.isa = &_NSConcreteMallocBlock;"
+    },
+    {
+      "type": "markdown",
+      "data": "## `__block 变量的内存管理`\n* 当block从栈内存拷贝到堆内存时，__block变量也会被拷贝到堆内存，block会持有该变量。需要说明的是：当栈上的block被拷贝到堆上，堆上的block再次被拷贝时，对__block变量已经没有影响了。\n ![IMAGE](quiver-image-url/86AD65913072BE2C1FD1046117EE5568.jpg =450x311)\n* 当多个block获取同一个__block变量时，block从栈被拷贝到堆时：\n  ![IMAGE](quiver-image-url/27770EBCF26BC0FCE0AE9F4CE0A35336.jpg =700x547)\n* 当block被废弃时，__block变量被释放：\n  ![IMAGE](quiver-image-url/43B5C22DEF94690FD6A437E3BFC10359.jpg =800x604)"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

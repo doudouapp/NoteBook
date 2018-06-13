@@ -1,0 +1,9 @@
+{
+  "title": "一些常见问题",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "`1、在sourceTree中使用了git（ssh）方式去创建仓库，还需要输入密码`\n在终端中输入命令：ssh-add ~/.ssh/id_rsa,\n此时输入命令ssh-add -l，可看到多了一条数据。"
+    }
+  ]
+}
