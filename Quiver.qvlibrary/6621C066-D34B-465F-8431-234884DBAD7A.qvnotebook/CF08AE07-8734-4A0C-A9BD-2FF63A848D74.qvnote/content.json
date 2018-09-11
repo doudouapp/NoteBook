@@ -43,6 +43,18 @@
       "type": "code",
       "language": "c_cpp",
       "data": "#include <iostream>\nusing namespace std;\nclass Line {\n  public:\n      void setLength(double len);\n      double getLength(void);\n      Line();  //  构造函数声明\n      ~Line(); //  析构函数声明\n  private:\n      double length;\n}\n\n// 成员函数定义，包括构造函数 和 析构函数\n\nLine::Line(void) {\n  cout << \"Object is being created\" << endl;\n}\n\nLine::~Line(void) {\n  cout << \"Object is being deleted\" << endl;\n}\n\nvoid Line::setLength(double len) {\n  length = len;\n}\n\ndouble Line::getLength(void) {\n  return length;\n}\n\nint main() {\n  Line line;\n  line.setLenth(6.0);\n  cout << \"Length of line :\" << line.getLength() << endl;\n  return 0;\n}\n\n// 当上面的代码被编译和执行时，会产生下列结果：\n// Object is being created\n// Length of line : 6\n// Object is being deleted"
+    },
+    {
+      "type": "text",
+      "data": "<h2>构造顺序 和 析构顺序</h2>"
+    },
+    {
+      "type": "text",
+      "data": "构造<div><br></div><div>基类对象在派生类对象之前被实例化，</div>"
+    },
+    {
+      "type": "text",
+      "data": ""
     }
   ]
 }

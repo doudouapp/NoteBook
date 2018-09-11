@@ -11,6 +11,10 @@
     },
     {
       "type": "text",
+      "data": "<div><br></div>"
+    },
+    {
+      "type": "text",
       "data": ""
     }
   ]

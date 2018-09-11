@@ -1,0 +1,33 @@
+{
+  "title": "Runloop",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Runloop是一种循环，一般的while循环会使CPU进入忙等待状态，而runloop则是一种“闲”等待。当没有事件时，Runloop会进入休眠状态，有事件发生时，Runloop会去找对应的Handler处理事件。<div><span style=\"font-size: 13px;\">Runloop和线程是绑定在一起的，每个线程都有一个对应的Runloop对象。Runloop是一个事件处理循环，让你来安排工作和协调接收到的事件。runloop的目的是让线程有事件时处理事件，无事件时休眠。</span></div>"
+    },
+    {
+      "type": "text",
+      "data": "在CoreFundation里面关于Runloop的5个类：<div>CFRunloopRef、CFRunloopModeRef、CFRunloopSourceRef、CFRunloopTimerRef、CFRunloopObserverRef</div>"
+    },
+    {
+      "type": "markdown",
+      "data": "![IMAGE](quiver-image-url/81CEED6CAF2C814B43C5845A22F6A836.jpg =320x250)"
+    },
+    {
+      "type": "text",
+      "data": "一个Runloop包含若干个 Mode ，每个Mode又包含若干个Source/Timer/Observer。每次调用Runloop的主函数是，只能指定其中一个Mode，这个 Mode 称作 CurrentMode。"
+    },
+    {
+      "type": "markdown",
+      "data": "**CFRunloopSourceRef** 是事件产生的地方。Source有两个版本：Source0和Source1。\n* Source0 只包含了一个回调（函数指针），它并不能主动触发事件，使用时，需要先调用`CFRunloopSourceSignal(source)`,将这个Source标记为待处理，然后调用`CFRunloopWakeUp(runloop)`来唤醒Runloop，让其处理事件。\n* Source1 包含了一个mach-port和一个回调函数，被用于`通过内核和其他线程相互发送消息`。\n\n**CFRunLoopTimerRef** 是基于时间的触发器，它和NSTimer是toll-free bridged的，可混合使用。其包含一个时间长度和一个回调函数。\n**CFRunloopObserverRef** 是观察者，每个Observer都包含了一个回调，当Runloop的状态发生变化时，会通过这个回调通知给观察者。"
+    },
+    {
+      "type": "text",
+      "data": "<h3>Run Loop Modes</h3><div>一个runloop的mode包含若干个observers、timers、sources的集合。</div><div><br></div>"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

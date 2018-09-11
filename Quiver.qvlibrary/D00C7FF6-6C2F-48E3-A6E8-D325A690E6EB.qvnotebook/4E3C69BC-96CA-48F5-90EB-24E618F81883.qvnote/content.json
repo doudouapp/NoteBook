@@ -1,0 +1,14 @@
+{
+  "title": "Python实现字符串匹配算法Boyer- Moore",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "参考链接： [阮一峰 字符串匹配的Boyer-Moore算法](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)\n\n感谢作者分享！\n\n文中demo使用Python3实现。\n\n待完成：好后缀规则。\n\n其他：学习Python中，若demo中有Python相关或其他错误，请稍加批判。"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "data": "def string_match_boyer_moore(string,match,start=0):\n    string_len = len(string) - 1\n    match_len  = len(match)  - 1\n    end = match_len\n    print (string)\n    print (match)\n    print ('******')\n\n    if string_len < match_len:\n        print ('Not Found')\n        return start;\n    else:\n        while string[end] == match[end]:\n            end -= 1\n            if end == 0:\n                print ('Success Position:' + str(start))\n                return\n        idx = contain_char(match,string[end])\n        shift = match_len + 1\n        if idx > -1:\n            shift = end - idx\n        start += shift\n        string_match_boyer_moore(string[shift:],match,start)\n\ndef contain_char(s,c):\n    try:\n        idx = s.index(c)\n    except ValueError:\n        idx = -1\n    return idx\n\nstring_match_boyer_moore('here is a simple example','example') "
+    }
+  ]
+}

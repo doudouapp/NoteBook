@@ -1,0 +1,13 @@
+{
+  "title": "Runtime",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Objc是一门动态语言，所以总是想办法把一些决定工作从编译连接推迟到运行时，利用runtime运行时系统来执行编译后的代码。"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

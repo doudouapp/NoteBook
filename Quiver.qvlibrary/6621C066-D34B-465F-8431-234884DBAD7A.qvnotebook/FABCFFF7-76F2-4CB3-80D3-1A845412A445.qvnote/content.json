@@ -1,0 +1,13 @@
+{
+  "title": "lambda 表达式（闭包）",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>Lambda表达式把函数看作对象，可以像对象一样使用，比如将它赋给变量和作为参数传递，像函数一样对其求值。<br></div><div><br></div>[capture](parameters) -&gt; return_type{ body }<div><br></div><div><div><div>如果没有参数，空的圆括号()可以省略，返回值也可以省略。</div></div><div>[capture](parameters){ body }</div><div><br></div></div><div>capture 捕获在声明lambda处可见的函数的任何局部变量。</div><div>[] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 未定义变量。</div><div>[x, &amp;y] &nbsp; &nbsp;// x按值捕获，y按引用捕获</div><div>[&amp;] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 任何外部变量都隐式按引用捕获</div><div>[=] &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// &nbsp;任何外部变量都隐式按值捕获</div><div>[&amp;,x] &nbsp; &nbsp; &nbsp; // &nbsp;x显式的按值捕获，其他变量按引用捕获</div><div>[=,&amp;z] &nbsp; &nbsp;// &nbsp;z显式的按引用捕获，其他变量按值捕获</div>"
+    },
+    {
+      "type": "text",
+      "data": "<br>"
+    }
+  ]
+}
